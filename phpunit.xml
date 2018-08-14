@@ -30,4 +30,8 @@
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="MAIL_DRIVER" value="array"/>
     </php>
+    <logging>
+        <log type="coverage-html" target="./build/coverage-html" charset="UTF-8" yui="true" highlight="true"
+             lowUpperBound="35" highLowerBound="75"/>
+    </logging>
 </phpunit>
