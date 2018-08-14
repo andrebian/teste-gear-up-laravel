@@ -164,9 +164,8 @@ class TimeCalculatorService
         foreach ($clockResult as $hourAndMinute) {
             $hourAndMinute = explode(':', $hourAndMinute);
             $hour = $hourAndMinute[0];
-            if (strlen($hour) == 1) {
-                $hour = '0' . $hour;
-            }
+            $hour = str_pad($hour, 2, '0', STR_PAD_LEFT);
+
             if (! array_key_exists($hour, $result)) {
                 $result[$hour] = 0;
             }
@@ -200,7 +199,6 @@ class TimeCalculatorService
                 }
                 $diffMinutes += $diff->format('%i');
 
-
                 switch ($type) {
                     case 'greatest':
                         if ($result === null || $diffMinutes > $result) {
@@ -217,13 +215,10 @@ class TimeCalculatorService
         }
 
         $hours = floor($result / 60);
-        if (strlen($hours) == 1) {
-            $hours = '0' . $hours;
-        }
+        $hours = str_pad($hours, 2, '0', STR_PAD_LEFT);
+
         $minutes = ($result % 60);
-        if (strlen($minutes) == 1) {
-            $minutes = '0' . $minutes;
-        }
+        $minutes = str_pad($minutes, 2, '0', STR_PAD_LEFT);
 
         return $hours . ':' . $minutes;
     }
