@@ -11,6 +11,9 @@
 |
 */
 
+use App\Http\Controllers\TimeCalculatorController;
+use App\Services\TimeCalculatorService;
+
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
@@ -40,6 +43,10 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
+$app->bind(TimeCalculatorController::class, function() {
+    return new TimeCalculatorController(new TimeCalculatorService());
+});
 
 /*
 |--------------------------------------------------------------------------
