@@ -4,12 +4,12 @@ namespace App\Models;
 
 /**
  * This model doesn't extend from Model because for this example
- * it has no database integration
+ * it has no database integration.
  *
- * Class ClockCalculationResult
+ * Class TimeResult
  * @package App\Models
  */
-class ClockCalculationResult
+class TimeResult
 {
     /**
      * @var string
